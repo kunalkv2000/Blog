@@ -1,0 +1,17 @@
+# Check migration status
+alembic current
+
+# View migration history  
+alembic history
+
+# Apply all pending migrations
+alembic upgrade head
+
+# Rollback one migration
+alembic downgrade -1
+
+# Create new migration after model changes
+alembic revision --autogenerate -m "description"
+
+# Check if database is up to date
+alembic check

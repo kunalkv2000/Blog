@@ -1,0 +1,45 @@
+name: Run Pytest Tests
+
+on:
+  push:
+    branches:
+      - Kunal
+    branches-ignore:
+      - main
+    paths:
+      - "week 7/Project/blog-api-service/"
+  pull_request:
+    branches:
+      - Kunal
+    branches-ignore:
+      - main
+    paths:
+      - "week 7/Project/blog-api-service/*"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        working-directory: ./backend
+        run: |
+          python -m pip install --upgrade pip
+          pip install fastapi sqlalchemy uvicorn
+          pip install -r requirements.txt
+
+      - name: Run unit tests
+        working-directory: ./backend
+        run: pytest test_unit/ -v
+
+      - name: Run mock database tests
+        working-directory: ./backend
+        run: pytest tests_mock_db/ -v
