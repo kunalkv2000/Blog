@@ -1,20 +1,10 @@
 name: Run Pytest Tests
 
 on:
-  push:
-    branches:
-      - Kunal
-    branches-ignore:
-      - main
-    paths:
-      - "week 7/Project/blog-api-service/"
+    push:
+    branches: ["*"]
   pull_request:
-    branches:
-      - Kunal
-    branches-ignore:
-      - main
-    paths:
-      - "week 7/Project/blog-api-service/*"
+    branches: ["*"]
 
 jobs:
   test:
