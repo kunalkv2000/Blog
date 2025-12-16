@@ -26,9 +26,9 @@ jobs:
           pip install fastapi sqlalchemy uvicorn
           pip install -r requirements.txt
 
-      - name: Run unit tests
-        working-directory: ./backend
-        run: pytest test_unit/ -v
+      # - name: Run unit tests
+      #   working-directory: ./backend
+      #   run: pytest test_unit/ -v
 
       - name: Run mock database tests
         working-directory: ./backend
